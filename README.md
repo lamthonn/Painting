@@ -14,3 +14,5 @@ Cách chạy web trên localhost
     localhost:8000/painting (đến trang chủ web)
 Tạo app từ project:
     python manage.py startapp <name_app>
+# painting_app
+
