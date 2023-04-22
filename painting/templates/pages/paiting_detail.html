@@ -1,0 +1,24 @@
+
+{% extends "pages/base.html" %}
+{% load static %}  
+{% block title %} 
+    {{painting.name}}
+{% endblock %}
+{% block content %}
+<div class="detail">
+    <div class="detail-content">
+        <img src="{{ painting.image.url }}" class="detail-img" alt="">
+        <h3> Name: {{ painting.name }}</h3>
+        <p> Description: {{ painting.description }}</p>
+        <p> Date upload: {{ painting.upload_date }}</p>
+    </div>
+    <div class="list-update">
+        <p class="list-title">Painting just updated</p>
+        <div class="list-update-content">
+        {% for painting in paintings %}
+        <a href="">{{ painting.name }}</a>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
