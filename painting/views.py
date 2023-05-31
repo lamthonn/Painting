@@ -4,7 +4,9 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from .forms import PaintingUploadForm
 from django.db.models import Q
 # from .forms import PaintingSearchForm
-
+def home(request):
+    paintings = Painting.objects.all()
+    return render(request,'pages/home.html',{'paintings':paintings})
 
 def painting_list(request):
     paintings = Painting.objects.all()

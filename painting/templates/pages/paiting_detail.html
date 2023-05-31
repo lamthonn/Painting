@@ -7,16 +7,19 @@
 {% block content %}
 <div class="detail">
     <div class="detail-content">
-        <img src="{{ painting.image.url }}" class="detail-img" alt="">
-        <h3> Name: {{ painting.name }}</h3>
-        <p> Description: {{ painting.description }}</p>
-        <p> Date upload: {{ painting.upload_date }}</p>
+            <img src="{{ painting.image.url }}" class="detail-img" alt="">
+            <h3>{{ painting.name }}</h3>
+            <p class="dt-ct-date">Ngày đăng tải: {{ painting.upload_date }}</p>
+        
+        <p> Mô tả: {{ painting.description }}</p>
+        
     </div>
     <div class="list-update">
-        <p class="list-title">Painting just updated</p>
+        <p class="list-title">Danh sách tranh</p>
+        <hr>
         <div class="list-update-content">
         {% for painting in paintings %}
-        <a href="">{{ painting.name }}</a>
+        <a href="{% url 'detail' pk=painting.id %}">{{ painting.name }}</a> <br>
         {% endfor %}
         </div>
     </div>

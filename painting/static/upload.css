@@ -1,8 +1,9 @@
 .upload{
-    background-color:  rgb(212, 225, 225);
+    background-color:  #ccc;
     height: 520px;
     padding-left: 247px;
     padding-top: 34px;
+    display: flex;
 }
 
 .upload .upload-a {

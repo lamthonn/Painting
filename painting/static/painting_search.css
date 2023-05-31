@@ -5,3 +5,18 @@
 .detail {
     padding-bottom: 15px;
 }
+
+.detail .detail-search{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.detail .detail-search .row-search{
+    height: 360px;
+    margin-left: 0;
+}
+
+.search-pt{
+    margin: 0;
+}
