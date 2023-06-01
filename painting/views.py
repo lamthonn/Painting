@@ -62,4 +62,6 @@ def painting_search(request):
         }
     return render(request, 'pages/painting_search.html',context)
         
+def contact(request):
+    return render(request, 'pages/contact.html')
         
