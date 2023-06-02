@@ -8,6 +8,10 @@ def home(request):
     paintings = Painting.objects.all()
     return render(request,'pages/home.html',{'paintings':paintings})
 
+def blog(request):
+    paintings = Painting.objects.all()
+    return render(request,'pages/blog.html',{'paintings':paintings})
+
 def painting_list(request):
     paintings = Painting.objects.all()
     return render(request,'pages/painting_list.html',{'paintings':paintings})
