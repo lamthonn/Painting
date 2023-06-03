@@ -1,0 +1,17 @@
+{% extends "pages/base.html" %}
+{% load static %}
+
+{% block title %} 
+  login
+{% endblock %}
+
+{% block content %}
+ <form action="" method="POST">
+        {% csrf_token %}
+        <label for="">username</label>
+        <input type="text" name="username" placeholder="username">
+        <label for="">password</label>
+        <input type="password" name="password" placeholder="password">
+        <button type="submit" >Đăng nhập</button>
+    </form> 
+{% endblock %}

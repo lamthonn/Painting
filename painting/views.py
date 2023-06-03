@@ -1,8 +1,11 @@
 from django.shortcuts import render, get_object_or_404,redirect
-from .models import Painting
+from .models import Painting, CreateUserForm
 from django.contrib.auth.decorators import login_required, user_passes_test
 from .forms import PaintingUploadForm
 from django.db.models import Q
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate,login, logout
+from django.contrib import messages
 # from .forms import PaintingSearchForm
 def home(request):
     paintings = Painting.objects.all()
@@ -63,5 +66,30 @@ def painting_search(request):
     return render(request, 'pages/painting_search.html',context)
         
 def contact(request):
-    return render(request, 'pages/contact.html')
-        
+    return render(request, 'pages/contact.html')       
+
+def register(request):
+    form = CreateUserForm()
+    if request.method == "POST":
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+    context = {'form' : form}
+    return render(request, 'pages/register.html', context)  
+
+def loginPage(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username = username, password = password )
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.info(request, 'user or password not correct!')
+    context = {}
+    return render(request, 'pages/login.html', context)  
+
+def logoutPage(request):
+    logout(request)
+    return redirect('loginPage')
