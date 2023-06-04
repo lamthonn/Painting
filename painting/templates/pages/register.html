@@ -26,6 +26,7 @@
                       <h2 class="text-uppercase text-center mb-5" style="color:black;">Create an account</h2>
 
                       <form style="color:black;" method="POST" class="form_register">
+                        {% csrf_token %}
                         <div class="form-outline mb-4">
                           {{ form.username }}
                           <label class="form-label" for="form3Example1cg">Your Name</label>
@@ -50,7 +51,7 @@
                         </div>
 
                         <div class="d-flex justify-content-center">
-                          <button type="button"
+                          <button type="submit"
                             class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
                         </div>
 

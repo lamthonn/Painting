@@ -4,7 +4,9 @@
     {{painting.name}}
 {% endblock %}
 {% block content %}
-
+{% block link %} 
+    <link rel="stylesheet" href="{% static 'painting_search.css' %}" > 
+{% endblock %}
 <div class="detail">
     <p>Kết quả tìm kiếm:</p>
     <div class="detail-search">

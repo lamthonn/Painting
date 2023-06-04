@@ -93,3 +93,6 @@ def loginPage(request):
 def logoutPage(request):
     logout(request)
     return redirect('loginPage')
+
+def profile(request):
+    return render(request, 'pages/profile_user.html')  
