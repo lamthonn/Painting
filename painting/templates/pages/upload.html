@@ -7,14 +7,14 @@
 
 {% block content %}
   <div class="upload">
+    <h2>Đăng tranh</h2>
     <div class="upload-a">
-        <h2>Upload a Painting</h2>
-        <form method="post" enctype="multipart/form-data" class="upload-content">
-          {% csrf_token %}
-          {{ form.as_p }}
-          <button type="submit">Save</button>
-        </form>
-    </div>
-</div>
-
+      <h3>Tải tranh lên</h3>
+      <form method="post" enctype="multipart/form-data" class="upload-content">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+      </form>
+    </div>   
+  </div>
 {% endblock %}

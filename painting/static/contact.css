@@ -8,16 +8,17 @@ body {
   #contact {
     width: 100%;
     height: 100%;
+    background-color: #e3dddd;
   }
   
   .section-header {
     text-align: center;
     margin: 0 auto;
-    padding: 40px 0;
-    font: 300 60px 'Oswald', sans-serif;
-    color: #fff;
+    padding: 40px 0 20px 0;
+    color: #aba6a6;
     text-transform: uppercase;
     letter-spacing: 6px;
+    font-size: 35px;
   }
   
   .contact-wrapper {
@@ -41,15 +42,15 @@ body {
   .form-control, 
   .form-horizontal textarea {
     max-width: 400px;
-    background-color: #000;
-    color: #fff;
+    background-color: #fff;
+    color: #000;
     letter-spacing: 1px;
   }
   
   .send-button {
     margin-top: 15px;
     height: 34px;
-    width: 400px;
+    width: 422px;
     overflow: hidden;
     transition: all .2s ease-in-out;
   }
@@ -79,41 +80,50 @@ body {
   /* Location, Phone, Email Section */
   .contact-list {
     list-style-type: none;
-    margin-left: -30px;
+    margin-left: 25px;
     padding-right: 20px;
   }
   
   .list-item {
     line-height: 4;
-    color: #aaa;
+    color: #555;
+
   }
   
   .contact-text {
-    font: 300 18px 'Lato', sans-serif;
+    font: 300 18px;
     letter-spacing: 1.9px;
-    color: #bbb;
+    color: #555;
   }
   
   .place {
-    margin-left: 62px;
+    margin-left: 10px;
+    font-size: 14px;
+    font-style: italic;
   }
   
   .phone {
-    margin-left: 56px;
+    margin-left: 10px;
+    font-size: 14px;
+    font-style: italic;
+    color: #555;
   }
   
   .gmail {
-    margin-left: 53px;
+    margin-left: 10px;
+    font-size: 14px;
+    font-style: italic;
+    color: #555;
   }
   
   .contact-text a {
-    color: #bbb;
+    color: #555;
     text-decoration: none;
     transition-duration: 0.2s;
   }
   
   .contact-text a:hover {
-    color: #fff;
+    color: #000;
     text-decoration: none;
   }
   
@@ -138,7 +148,7 @@ body {
     height: 60px;
     width: 60px;
     margin: 10px 3px;
-    line-height: 60px;
+    line-height: 73px;
     border-radius: 50%;
     color: #fff;
     background-color: rgb(27,27,27);
@@ -185,6 +195,14 @@ body {
     border-color: rgba(255,255,255,.6);
   }
   
+  .social-media-list .contact-icon i{
+    font-size: 30px;
+  }
+
+  .alt-send-button i{
+    line-height: 32px;
+  }
+
   /* Begin Media Queries*/
   @media screen and (max-width: 850px) {
     .contact-wrapper {
@@ -202,7 +220,7 @@ body {
     .social-media-list li {
       height: 60px;
       width: 60px;
-      line-height: 60px;
+      line-height: 73px;
     }
     .social-media-list li:after {
       width: 60px;

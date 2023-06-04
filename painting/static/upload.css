@@ -1,9 +1,15 @@
 .upload{
-    background-color:  #ccc;
-    height: 520px;
-    padding-left: 247px;
-    padding-top: 34px;
-    display: flex;
+    background-color:  #e3dddd;
+    padding: 20px;
+}
+
+.upload h2{
+    text-align: center;
+    margin: 0 auto;
+    padding: 40px 0 20px 0;
+    color: #aba6a6;
+    text-transform: uppercase;
+    font-size: 35px;
 }
 
 .upload .upload-a {

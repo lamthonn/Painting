@@ -115,7 +115,7 @@
 
 .blog-main .bl-adver li{
     margin: 20px 0;
-    position: fixed;
+    /* position: fixed; */
 }
 
 .bl-adver img{
