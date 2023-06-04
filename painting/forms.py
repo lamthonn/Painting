@@ -11,3 +11,9 @@ class PaintingUploadForm(forms.ModelForm):
         model = Painting
         fields = ['name', 'description','image']
 
+class PaintingUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Painting
+        fields = '__all__'
+
+

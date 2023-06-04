@@ -27,3 +27,29 @@ function prev() {
 setInterval(next,3500);
 
 Hien_thi_slide();
+
+const manager_admin = document.querySelector('.icon-user-home')
+const manager_pictures = document.querySelector('.man-pictures')
+
+const isShow = false;
+manager_admin.addEventListener('click',function (){
+    this.isShow = !this.isShow;
+    if(this.isShow == true){
+        document.querySelector('.manager-admin').style.display = 'block';
+    }
+    else {
+        document.querySelector('.manager-admin').style.display = 'none';
+        document.querySelector('.manager-pictures').style.display = 'none'; 
+    }
+});
+
+manager_pictures.addEventListener('click',function (){
+  this.isShow = !this.isShow;
+  if(this.isShow == true){
+      document.querySelector('.manager-pictures').style.display = 'block';
+      document.querySelector('.manager-admin').style.display = 'none';
+  }
+  else {
+      document.querySelector('.manager-pictures').style.display = 'none';
+  }
+});

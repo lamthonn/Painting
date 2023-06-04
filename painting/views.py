@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404,redirect
 from .models import Painting, CreateUserForm
 from django.contrib.auth.decorators import login_required, user_passes_test
 from .forms import PaintingUploadForm
+from .forms import PaintingUpdateForm
+from django.contrib import messages
 from django.db.models import Q
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate,login, logout
@@ -11,9 +13,50 @@ def home(request):
     paintings = Painting.objects.all()
     return render(request,'pages/home.html',{'paintings':paintings})
 
+def blog(request):
+    paintings = Painting.objects.all()
+    return render(request,'pages/blog.html',{'paintings':paintings})
+
+def news(request):
+    paintings = Painting.objects.all()
+    return render(request,'pages/news.html',{'paintings':paintings})
+    
+def contact(request):
+    paintings = Painting.objects.all()
+    return render(request,'pages/contact.html',{'paintings':paintings})
+
 def painting_list(request):
     paintings = Painting.objects.all()
     return render(request,'pages/painting_list.html',{'paintings':paintings})
+
+@login_required
+@user_passes_test(lambda a: a.is_staff)
+def admin_list(request):
+    paintings = Painting.objects.all()
+    return render(request,'pages/admin_list.html',{'paintings':paintings})
+
+
+def delete_pictures(request,pk):
+    paintings = get_object_or_404(Painting,pk=pk)
+    if request.method == 'POST':
+        paintings.delete()
+    return render(request,'pages/delete_pictures.html',{'paintings':paintings})
+
+
+def edit_pictures(request,pk):
+    painting = get_object_or_404(Painting,pk=pk)
+    paintings = Painting.objects.all()
+    return render(request,'pages/edit_pictures.html',{'painting':painting, 'paintings':paintings})
+
+def update_pictures(request,pk):
+    painting = get_object_or_404(Painting,pk=pk)
+    form = PaintingUpdateForm(request.POST,instance=painting)
+    if form.is_valid:
+        form.save()
+        messages.success(request,"Sửa thành công")
+        return redirect('list')
+    return render(request,'pages/edit_pictures.html',{ 'painting':painting})
+
 
 def painting_detail(request,pk):
     painting = get_object_or_404(Painting,pk=pk)
@@ -25,12 +68,14 @@ def painting_detail(request,pk):
 def upload_painting(request):
     if request.method == 'POST':
         form = PaintingUploadForm(request.POST,request.FILES)
+
         if form.is_valid():
             form.save()
             return redirect('list')
     else:
         form = PaintingUploadForm()
     return render(request,'pages/upload.html',{'form':form})
+
 
 # def painting_search(request):
 #     form = PaintingSearchForm(request.GET)

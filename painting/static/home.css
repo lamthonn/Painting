@@ -95,28 +95,6 @@ i{
         font-weight: 200;
     }
 
-    .home .home-artists .art-list{
-        display: flex;
-    }
-
-    .home-artists .art-list{
-        width: 50%;
-    }
-
-    .art-list .artist{
-        display: flex;
-    }
-
-    .art-list .artist .art-img{
-        width: 300px;
-    }
-
-    .home-artists .art-list img{
-        width: 300px;
-        height: 350px;
-
-    }
-
     .home-artists .art-list h3{
         color: #fff;
         font-size: 20px;
@@ -125,17 +103,31 @@ i{
         font-weight: 100;
     }
 
-    .art-list .artist .art-content{
-        width: 420px;
-        color: #fff;
+    .home-artists .art-list .art-content{
+        color:#aba6a6;
         padding: 10px;
         text-align: justify;
+        line-height: 1.6;
     }
 
-    .home-artists hr{
+    .home-artists .art-list hr{
         margin-top: 20px;
         margin-bottom: 40px;
         color: #ccc;
+    }
+
+    .home-artists .art-list li{
+        display: flex;
+    }
+
+    .art-list li .art-img,
+    .art-list li .art-infor{
+        width: 50%;
+    }
+
+    .art-list li img{
+        width: 100%;
+        height: 600px;
     }
 /* end: home-artists */
 
@@ -290,7 +282,7 @@ i{
         margin: 20px 0;
     }
 
-    ul .new-detail{
+    ul .new-detail .news-dt-img{
         overflow: hidden;
     }
 
@@ -445,17 +437,20 @@ i{
         color: #000;
         background-color: #fff;
         cursor: pointer;
+        transition: 1s;
     }
 
     .blog-main-content:hover button i{
         background-color: #000;
         color: #fff;
         cursor: pointer;
+        transition: 1s;
     }
 
     .blog-main-content:hover h5{
         text-decoration: underline;
         cursor: pointer;
+        transition: 1s;
     }
 
     .blog-content .blog-add{
