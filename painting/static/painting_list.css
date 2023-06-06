@@ -98,7 +98,6 @@ ul{
     display: flex;
     justify-content: left;
     color: #fff;
-    margin: 5px 15px 15px;
     text-decoration: none;
 }
 
@@ -171,4 +170,8 @@ ul{
     background-color: #fff;
     border-radius: 16px;
     margin: 10px 5px;
+}
+
+.active_like {
+    color: red;
 }

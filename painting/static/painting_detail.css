@@ -74,3 +74,42 @@
     text-decoration: underline;
 }
 
+
+/* comment */
+
+.cmt {
+    margin-bottom: 20px;
+}
+.cmt-par {
+    display: flex;
+}
+
+
+.user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.cmt-detail {
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px;
+    min-width: 500px;
+    min-height: 80px;
+    height: 80px;
+    width: 300px;
+}
+
+.cmt-detail p {
+    font-size: 14px;
+    padding: 0;
+}
+
+.cmt-add span {
+    margin-left: 20px;
+}
+
+.cmt-add span:first-child {
+    margin-left: 40px;
+}

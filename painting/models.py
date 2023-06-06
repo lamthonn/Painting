@@ -16,3 +16,11 @@ class Painting(models.Model):
     image = models.ImageField()
     upload_date = models.DateTimeField(auto_now_add=True)
     
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    painting = models.ForeignKey(Painting, on_delete=models.CASCADE)
+
+class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    painting = models.ForeignKey(Painting, on_delete=models.CASCADE)
+    cmt = models.TextField()

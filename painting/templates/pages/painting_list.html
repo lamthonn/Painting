@@ -1,4 +1,3 @@
-
 {% extends "pages/base.html" %}
 {% load static %}  
 {% block title %} 
@@ -22,7 +21,16 @@
                             <a href="{% url 'detail' pk=painting.id %}" ><img src="{{ painting.image.url }}" class="over-img" alt=""></a>
                         </div>
                         <ul class="function-pictures">
-                            <li><i class="fa-solid fa-heart"></i></li>
+                            <li>
+                                <i class="fa-solid fa-heart icon_like{{painting.id}} 
+                                    `{% for ptl in paintings_like %}          
+                                        {% if painting.id == ptl.painting.id %}
+                                            active_like
+                                        {% endif %}
+                                    {% endfor %} `" 
+                                    onclick="like_pain('{{ painting.id }}')">
+                                </i>
+                            </li>
                             <li><i class="fa-regular fa-comment"></i></li>
                             <li><i class="fa-solid fa-share"></i></li>
                         </ul>
@@ -92,4 +100,5 @@
             </ul>
         </div>
     </div>
+    <script src="{% static 'js/painting_list.js' %}"></script>
 {% endblock %}
