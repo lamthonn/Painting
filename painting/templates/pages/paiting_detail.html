@@ -26,6 +26,7 @@
         <div class="comments">
             <h2>Các bình luận</h2>
             <ul class="list-group">
+                <li class="cmt cmt_tam"></li>
                 {% for comment in comments %}
                     {% if comment.painting.id == painting.id %}
                         <li class="cmt">

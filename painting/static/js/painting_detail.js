@@ -22,8 +22,7 @@ async function addComment(id) {
         console.log(err)
     })
     const comment = document.getElementById('comment').value
-    document.querySelector('.list-group').innerHTML += `
-        <li class="cmt">
+    document.querySelector('.cmt_tam').innerHTML += `
             <div class="cmt-par">
                 <img src="/static/image/logo.png" alt="" class="user-image">
                 <div class="cmt-detail">
@@ -37,7 +36,7 @@ async function addComment(id) {
                 <span>Trả lời</span>
                 <span>5 giờ</span>
             </div>
-        </li>
+
     `
 
     document.getElementById('comment').value = ''

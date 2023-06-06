@@ -64,7 +64,7 @@ def update_pictures(request,pk):
 
 def painting_detail(request,pk):
     painting = get_object_or_404(Painting,pk=pk)
-    comments = Comment.objects.all()
+    comments = reversed(Comment.objects.all())
     paintings = Painting.objects.all()
     return render(request,'pages/paiting_detail.html',{'painting':painting, 'paintings':paintings, 'comments': comments})
 
