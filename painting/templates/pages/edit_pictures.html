@@ -1,0 +1,35 @@
+{% extends "pages/base.html" %}
+{% load static %}
+
+{% block title %} 
+{{ painting.name }}
+{% endblock %}
+
+{% block content %}
+  <div class="upload">
+    <h2>Chỉnh sửa</h2>
+    <div class="upload-a">
+      <form method="post" enctype="multipart/form-data" class="upload-content" action="http://127.0.0.1:8000/painting/update_pictures/{{painting.id}}/">
+        {% csrf_token %}
+        <p>
+          <label for="id_name">Tên tranh:</label>
+          <input type="text" name="name" maxlength="50" required="" id="id_name" value="{{ painting.name }}">
+          </p>
+        <p>
+          <label for="id_description">Mô tả:</label>
+          <input name="description" cols="40" rows="10" required="" id="id_description" value="{{ painting.description }}">
+          </p>
+        <p>
+          
+          <label for="id_image">Image:</label>
+          {% if painting.image%}
+            <img src="{{ painting.image.url }}" alt="" class ="edit_pictures">
+          {% endif %}
+          <input type="file" name="image" accept="image/*" required="" id="id_image" value="{{ painting.image.url }}">
+        </p>
+        {% comment %} {{ form.as_p }} {% endcomment %}
+        <button type="submit">Save</button>
+      </form>
+    </div>   
+  </div>
+{% endblock %}

@@ -7,7 +7,7 @@ ul{
     margin-right: -8px;
     display: flex;
     padding-top: 36px;
-    height: 300px;
+    height: 360px;
     color: #8d8a8a;
     color: #edeaea;
 }
@@ -30,10 +30,22 @@ ul{
     margin-bottom: 30px;
 }
 
+.title-list{
+    text-align: center;
+    margin: 0 auto;
+    padding: 40px 0 20px 0;
+    color: #aba6a6;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    font-size: 35px;
+}
+
 .list .list-pictures{
     min-height: 200px;
     display: flex;
     flex-wrap: wrap;
+    align-content: flex-start;
+    width: 80%;
 }
 
 .img-contain{
@@ -116,7 +128,7 @@ ul{
 }
 
 .list .list-news {
-    width: 110%;
+    width: 21%;
     margin-top: 20px;
     margin-right: 20px;
 }

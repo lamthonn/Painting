@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     font-size: 14px;
+    box-sizing: border-box;
 }
 html,body{
     margin: 0;
@@ -24,6 +25,7 @@ i{
     display: flex;
     padding: 10px 20px;
     background-color: #edeaea;
+    position: relative;
 }
 
 #header .logo{
@@ -111,11 +113,47 @@ i{
     color: rgb(177, 58, 58);
 }
 
+.manager-pictures{
+    position: absolute;
+    display: none;
+}
+
+.manager-admin{
+    position: absolute;
+    display: none;
+}
+
+.manager-pictures,
+.manager-admin{
+    z-index: 20;
+    right: 110px;
+    top: 60px;
+    background: #ccc;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+}
+
+.manager-pictures li,
+.manager-admin li{
+    padding: 5px 15px;
+    font-size: 16px;
+}
+
+.manager-pictures li:hover,
+.manager-admin li:hover{
+    cursor: pointer;
+    background-color:#827f7f ;
+    transition: 1s;
+}
+
+.manager-pictures li a{
+    color: #000;
+}
+
 .footer {
     background-color: #edeaea;
     position: absolute;
     width: 100%;
-    padding: 20px 20px;
+    padding: 20px 0px;
 }
 
 .footer .company {

@@ -3,6 +3,7 @@ async function addComment(id) {
     let data = {
         cmt
     }
+    let username;
     const csrftoken = getCookie('csrftoken');
     await fetch(`http://localhost:8000/painting/add_comment/${id}/`, {
         method: 'POST',
@@ -12,14 +13,34 @@ async function addComment(id) {
         },
         body: JSON.stringify(data)
     })
-    .then((res) => {
-        console.log(res)
+    .then((res) => res.json())
+    .then((data) => {
+        console.log(data.res_data)
+        username = data.res_data.username;
     })
     .catch((err) => {
         console.log(err)
     })
+    const comment = document.getElementById('comment').value
+    document.querySelector('.list-group').innerHTML += `
+        <li class="cmt">
+            <div class="cmt-par">
+                <img src="/static/image/logo.png" alt="" class="user-image">
+                <div class="cmt-detail">
+                    <h4>${username}</h4> 
+                    <p>${comment}</p>
+                </div>
+                <i class="bi bi-three-dots-vertical"></i>
+            </div>
+            <div class="cmt-add">
+                <span>Thích</span>
+                <span>Trả lời</span>
+                <span>5 giờ</span>
+            </div>
+        </li>
+    `
+
     document.getElementById('comment').value = ''
-    document.querySelector('.list-group').innerHTML = '<h1>hi hi</h1>'
 }
 
 function getCookie(name) {
