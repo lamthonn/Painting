@@ -30,3 +30,11 @@
 .hd-sign-loggedIn p{
     margin-bottom: 0;
 }
+
+.card-img-top {
+    height: 15rem;
+}
+
+.card-body {
+    overflow-x: auto;
+}

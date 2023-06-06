@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404,redirect
-from .models import Painting, CreateUserForm
+from .models import Painting, CreateUserForm, Like, Comment
 from django.contrib.auth.decorators import login_required, user_passes_test
 from .forms import PaintingUploadForm
 from .forms import PaintingUpdateForm
@@ -8,6 +8,9 @@ from django.db.models import Q
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
+from django.http import JsonResponse
+import json
+from django.views.decorators.csrf import csrf_exempt
 # from .forms import PaintingSearchForm
 def home(request):
     paintings = Painting.objects.all()
@@ -27,7 +30,8 @@ def contact(request):
 
 def painting_list(request):
     paintings = Painting.objects.all()
-    return render(request,'pages/painting_list.html',{'paintings':paintings})
+    paintings_like = Like.objects.filter(user=request.user)
+    return render(request,'pages/painting_list.html',{'paintings':paintings, "paintings_like": paintings_like})
 
 @login_required
 @user_passes_test(lambda a: a.is_staff)
@@ -60,8 +64,9 @@ def update_pictures(request,pk):
 
 def painting_detail(request,pk):
     painting = get_object_or_404(Painting,pk=pk)
+    comments = Comment.objects.all()
     paintings = Painting.objects.all()
-    return render(request,'pages/paiting_detail.html',{'painting':painting, 'paintings':paintings})
+    return render(request,'pages/paiting_detail.html',{'painting':painting, 'paintings':paintings, 'comments': comments})
 
 @login_required
 @user_passes_test(lambda u: u.is_staff)
@@ -140,4 +145,35 @@ def logoutPage(request):
     return redirect('loginPage')
 
 def profile(request):
-    return render(request, 'pages/profile_user.html')  
+    painting_likes = Like.objects.filter(user=request.user)
+    return render(request, 'pages/profile_user.html', {'painting_likes':painting_likes})  
+
+def like(request, pk):
+    pain = get_object_or_404(Painting, pk=pk)
+    like = Like(user=request.user, painting=pain)
+    like.save()
+    return redirect('list')
+
+def like_delete(request, pk):
+    pain = get_object_or_404(Painting, pk=pk)
+    like = get_object_or_404(Like, user=request.user, painting=pain)
+    like.delete()
+    return redirect('list')
+        
+def add_comment(request, pk):
+    try: 
+        if(request.method == 'POST'):
+            pain = get_object_or_404(Painting, pk=pk)
+            #vì request.body trả về chuỗi dạng byte nên phải chuyển thành dạng utf8
+            cmt_req = json.loads(request.body.decode('utf-8'))
+            print(request.body)
+            print(cmt_req)
+            new_cmt = Comment(user=request.user, painting=pain, cmt=cmt_req.get('cmt'))
+            new_cmt.save()
+            res_data = {
+                'username': request.user.username
+            }
+            res = {'messages': 'success', 'res_data': res_data}
+            return JsonResponse(res)
+    except Exception as e:  
+         return JsonResponse({'message': 'error', 'error': str(e)})
