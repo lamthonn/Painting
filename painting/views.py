@@ -71,6 +71,7 @@ def painting_detail(request,pk):
 @login_required
 @user_passes_test(lambda u: u.is_staff)
 def upload_painting(request):
+    paintings = Painting.objects.all()
     if request.method == 'POST':
         form = PaintingUploadForm(request.POST,request.FILES)
 
@@ -79,7 +80,8 @@ def upload_painting(request):
             return redirect('list')
     else:
         form = PaintingUploadForm()
-    return render(request,'pages/upload.html',{'form':form})
+    
+    return render(request,'pages/upload.html',{'form':form,'paintings':paintings})
 
 
 # def painting_search(request):
