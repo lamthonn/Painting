@@ -5,6 +5,10 @@
 {{ painting.name }}
 {% endblock %}
 
+{% block link %}
+    <link rel="stylesheet" href="{% static 'edit_pictures.css' %}" >
+{% endblock link %}
+
 {% block content %}
   <div class="upload">
     <h2>Chỉnh sửa</h2>
