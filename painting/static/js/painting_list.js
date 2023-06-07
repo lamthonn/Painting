@@ -1,4 +1,5 @@
 async function like_pain(id) {
+   
     let icon  = document.querySelector(`.icon_like${id}`);
     icon.classList.toggle('active_like');
     console.log(id)
@@ -20,4 +21,12 @@ async function like_pain(id) {
             console.log(err)
         })
     }    
+    
+}
+
+function likeNoUser() {
+    const res = confirm('Vui lòng đăng nhập để tiếp tục');
+    if(res) {
+        location.href = "http://localhost:8000/painting/loginPage/"
+    }
 }
