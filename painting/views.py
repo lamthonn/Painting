@@ -30,8 +30,10 @@ def contact(request):
 
 def painting_list(request):
     paintings = Painting.objects.all()
-    paintings_like = Like.objects.filter(user=request.user)
-    return render(request,'pages/painting_list.html',{'paintings':paintings, "paintings_like": paintings_like})
+    if request.user.is_authenticated:
+        paintings_like = Like.objects.filter(user=request.user)
+        return render(request,'pages/painting_list.html',{'paintings':paintings, "paintings_like": paintings_like})
+    return render(request,'pages/painting_list.html',{'paintings':paintings})
 
 @login_required
 @user_passes_test(lambda a: a.is_staff)
@@ -66,6 +68,9 @@ def painting_detail(request,pk):
     painting = get_object_or_404(Painting,pk=pk)
     comments = reversed(Comment.objects.all())
     paintings = Painting.objects.all()
+    if request.user.is_authenticated:
+        is_user = request.user
+        return render(request,'pages/paiting_detail.html',{'painting':painting, 'paintings':paintings, 'comments': comments, 'is_user': is_user})
     return render(request,'pages/paiting_detail.html',{'painting':painting, 'paintings':paintings, 'comments': comments})
 
 @login_required

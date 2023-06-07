@@ -20,7 +20,11 @@
         <div class="input-group mb-3">
             <img src="{% static 'image/logo.png' %}" alt="" class="user-image">
             <input id="comment" type="text" class="form-control" placeholder="Nhập bình luận" aria-label="Recipient's username" aria-describedby="button-addon2">
-            <button onclick="addComment('{{ painting.id }}')" class="btn btn-outline-secondary" type="button" id="button-addon2">Bình luận</button>
+            {% if is_user %}
+                <button onclick="addComment('{{ painting.id }}')" class="btn btn-outline-secondary" type="button" id="button-addon2">Bình luận</button>
+            {% else %}
+                <button onclick="commentNoUser()" class="btn btn-outline-secondary" type="button" id="button-addon2">Bình luận</button>
+            {% endif %}
         </div>
 
         <div class="comments">
