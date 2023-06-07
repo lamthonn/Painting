@@ -13,7 +13,7 @@
 }
 
 .upload .upload-a {
-    width: 798px;
+    width: 1150px;
     height: 480px;
     border: 2px solid #000;
     display: inline-block;
@@ -33,14 +33,14 @@
 
 .upload-content #id_name{
     margin-left:60px;
-    width: 545px;
+    width: 800px;
     height: 27px;
 }
 
 .upload-content #id_description{
-    width: 546px;
+    width: 800px;
     height: 290px;
-    margin-left: 23px;
+    margin-left: 26px;
     margin-top: 10px;
 }
 
@@ -60,3 +60,12 @@
     margin-left: 540px;
 }
 
+.upload .list-update{
+    width: 320px;
+    margin-right: 0;
+    margin-top: 0;
+}
+
+.upload-content {
+    padding-left: 85px;
+}

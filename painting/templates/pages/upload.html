@@ -11,12 +11,21 @@
   <div class="upload">
     <h2>Đăng tranh</h2>
     <div class="upload-a">
-      <h3>Tải tranh lên</h3>
       <form method="post" enctype="multipart/form-data" class="upload-content">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Save</button>
       </form>
     </div>   
+    <div class="list-update">
+      <p class="list-title">Danh sách tranh</p>
+      <hr>
+      <div class="list-update-content">
+      {% for painting in paintings %}
+      <a href="{% url 'detail' pk=painting.id %}">{{ painting.name }}</a> <br>
+      {% endfor %}
+      </div>
   </div>
+  </div>
+
 {% endblock %}
