@@ -5,6 +5,10 @@
 {{ paintings.name }}
 {% endblock %}
 
+{% block link %}
+    <link rel="stylesheet" href="{% static 'delete_pictures.css' %}" >
+{% endblock link %}
+
 {% block content %}
 
   <form method="post" enctype="multipart/form-data" class="upload-content">

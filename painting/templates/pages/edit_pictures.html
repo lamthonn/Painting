@@ -5,6 +5,10 @@
 {{ painting.name }}
 {% endblock %}
 
+{% block link %}
+    <link rel="stylesheet" href="{% static 'edit_pictures.css' %}" >
+{% endblock link %}
+
 {% block content %}
   <div class="upload">
     <h2>Chỉnh sửa</h2>
@@ -27,9 +31,17 @@
           {% endif %}
           <input type="file" name="image" accept="image/*" required="" id="id_image" value="{{ painting.image.url }}">
         </p>
-        {% comment %} {{ form.as_p }} {% endcomment %}
-        <button type="submit">Save</button>
+        <button type="submit">Cập nhật</button>
       </form>
     </div>   
+    <div class="list-update">
+      <p class="list-title">Danh sách tranh</p>
+      <hr>
+      <div class="list-update-content">
+      {% for painting in paintings %}
+      <a href="{% url 'detail' pk=painting.id %}">{{ painting.name }}</a> <br>
+      {% endfor %}
+      </div>
+  </div> 
   </div>
 {% endblock %}
