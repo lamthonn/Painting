@@ -1,5 +1,8 @@
 from django import forms 
 from .models import Painting
+# from .models import ImageAdd
+
+
 
 class PaintingForm(forms.ModelForm):
     class Meta:
@@ -9,7 +12,8 @@ class PaintingForm(forms.ModelForm):
 class PaintingUploadForm(forms.ModelForm):
     class Meta:
         model = Painting
-        fields = ['name', 'description','image']
+        fields = ['name', 'description','image','imagelq']
+
 
 class PaintingUpdateForm(forms.ModelForm):
     class Meta:

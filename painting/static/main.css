@@ -115,7 +115,12 @@ i{
 
 .manager-pictures{
     position: absolute;
-    display: none;
+    display: block;
+}
+
+.icon-user-home:hover .manager-pictures{
+    display: block;
+    cursor: pointer;
 }
 
 .manager-admin{
