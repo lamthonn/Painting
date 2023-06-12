@@ -14,7 +14,6 @@
 
 .upload .upload-a {
     width: 1150px;
-    height: 480px;
     border: 2px solid #000;
     display: inline-block;
     line-height: 40px;
@@ -40,7 +39,7 @@
 .upload-content #id_description{
     width: 800px;
     height: 290px;
-    margin-left: 26px;
+    margin-left: 73px;
     margin-top: 10px;
 }
 
@@ -55,17 +54,39 @@
 }
 
 .upload-content  button{
-    padding: 4px 24px;
+    padding: 10px 29px;
     display: flex;
-    margin-left: 540px;
+    margin-left: 812px;
+    font-weight: 600;
+    background: #ccc;
+    border: 1px solid;
+    border-radius: 3px;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.upload-content  button:hover{
+    background: #fff;
+    cursor: pointer;
 }
 
 .upload .list-update{
     width: 320px;
     margin-right: 0;
     margin-top: 0;
+    margin-left: 20px;
 }
 
 .upload-content {
     padding-left: 85px;
+}
+
+.upload .upload-main{
+    display: flex;
+}
+
+.list-update p{
+    FONT-SIZE: 18px;
+    text-align: center;
+    font-weight: 600;
 }
