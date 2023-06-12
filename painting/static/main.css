@@ -214,10 +214,14 @@ i{
 
 .footer .information{
     float: left;
-    width: 300px;
+    width: 500px;
     padding-right: 147px;
 }
 
+li{
+    list-style: none;
+ }
+ 
 .footer .information .information-list{
     list-style: none;
     line-height: 1.8;
