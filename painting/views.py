@@ -78,8 +78,7 @@ def painting_detail(request,pk):
 def upload_painting(request):
     paintings = Painting.objects.all()
     if request.method == 'POST':
-        form = PaintingUploadForm(request.POST,request.FILES)
-
+        form = PaintingUploadForm(request.POST,request.FILES) 
         if form.is_valid():
             form.save()
             return redirect('list')
@@ -131,6 +130,7 @@ def register(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect('loginPage')
     context = {'form' : form}
     return render(request, 'pages/register.html', context)  
 
