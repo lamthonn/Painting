@@ -15,7 +15,10 @@ class Painting(models.Model):
     description = RichTextField()
     image = models.ImageField()
     upload_date = models.DateTimeField(auto_now_add=True)
-    imagelq = models.ImageField()
+
+class PaintingLq(models.Model):
+    painting = models.ForeignKey(Painting, on_delete=models.CASCADE)
+    image = models.ImageField()
 
 class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -25,3 +28,7 @@ class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     painting = models.ForeignKey(Painting, on_delete=models.CASCADE)
     cmt = models.TextField()
+
+class avatar(models.Model):
+    user_painting = models.ForeignKey(User,on_delete=models.CASCADE)
+    avt = models.ImageField(upload_to='avatar')

@@ -21,4 +21,5 @@ urlpatterns = [
     path('like/<int:pk>/', views.like, name='like'),
     path('like_delete/<int:pk>/', views.like_delete, name='like_delete'),
     path('add_comment/<int:pk>/', views.add_comment, name='add_comment'),
+    path('upload_avt/', views.upload_avt, name='upload_avt'),
 ]
