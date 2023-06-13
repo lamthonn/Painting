@@ -115,12 +115,7 @@ i{
 
 .manager-pictures{
     position: absolute;
-    display: block;
-}
-
-.icon-user-home:hover .manager-pictures{
-    display: block;
-    cursor: pointer;
+    display: none;
 }
 
 .manager-admin{

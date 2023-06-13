@@ -15,6 +15,7 @@
       <div class="upload-a">
         <form method="post" enctype="multipart/form-data" class="upload-content" action="http://127.0.0.1:8000/painting/update_pictures/{{painting.id}}/">
           {% csrf_token %}
+          
           <p>
             <label for="id_name">Tên tranh:</label>
             <input type="text" name="name" maxlength="50" required="" id="id_name">
