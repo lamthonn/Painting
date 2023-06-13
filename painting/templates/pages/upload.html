@@ -13,9 +13,9 @@
     <h2>Đăng tranh</h2>
     <div class="upload-main">
       <div class="upload-a">
-        <form method="post" enctype="multipart/form-data" class="upload-content" action="http://127.0.0.1:8000/painting/update_pictures/{{painting.id}}/">
+        <form method="post" enctype="multipart/form-data" class="upload-content" >
           {% csrf_token %}
-          
+
           <p>
             <label for="id_name">Tên tranh:</label>
             <input type="text" name="name" maxlength="50" required="" id="id_name">
@@ -36,7 +36,7 @@
             {% if painting.image%}
               <img src="{{ painting.imagelq.url }}" alt="">
             {% endif %}
-            <input type="file" name="imagelq" accept="image/*" required="" id="id_image">
+            <input type="file"  multiple name="imagelq" accept="image/*" required="" id="id_image" multiple>
           </p>
           <button type="submit">Tạo mới</button>
         </form>
@@ -52,5 +52,7 @@
       </div>
     </div>  
   </div>
-
+  <script>
+    CKEDITOR.replace('id_description');
+</script>
 {% endblock %}

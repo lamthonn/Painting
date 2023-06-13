@@ -37,7 +37,7 @@
             {% if painting.image%}
               <img src="{{ painting.imagelq.url }}" alt="" class ="edit_pictureslq">
             {% endif %}
-            <input type="file" name="image" accept="image/*" required="" id="id_image" value="{{ painting.image.url }}">
+            <input type="file"  multiple name="image" accept="image/*" required="" id="id_image" value="{{ painting.image.url }}">
           </p>
           <button type="submit">Cập nhật</button>
         </form>
