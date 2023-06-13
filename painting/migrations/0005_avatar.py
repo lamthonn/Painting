@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('painting', '0004_like_comment'),
+        # ('painting', '0004_like_comment'),
     ]
 
     operations = [
