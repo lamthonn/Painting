@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 #change form register
@@ -12,10 +12,14 @@ class CreateUserForm(UserCreationForm):
 
 class Painting(models.Model):
     name = models.CharField(max_length=50)
-    description = models.TextField()
+    description = RichTextField()
     image = models.ImageField()
     upload_date = models.DateTimeField(auto_now_add=True)
-    
+
+class PaintingLq(models.Model):
+    painting = models.ForeignKey(Painting, on_delete=models.CASCADE)
+    image = models.ImageField()
+
 class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     painting = models.ForeignKey(Painting, on_delete=models.CASCADE)

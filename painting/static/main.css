@@ -115,7 +115,12 @@ i{
 
 .manager-pictures{
     position: absolute;
-    display: none;
+    display: block;
+}
+
+.icon-user-home:hover .manager-pictures{
+    display: block;
+    cursor: pointer;
 }
 
 .manager-admin{
@@ -209,10 +214,14 @@ i{
 
 .footer .information{
     float: left;
-    width: 300px;
+    width: 500px;
     padding-right: 147px;
 }
 
+li{
+    list-style: none;
+ }
+ 
 .footer .information .information-list{
     list-style: none;
     line-height: 1.8;

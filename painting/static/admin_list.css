@@ -6,6 +6,10 @@ table{
     border-collapse:collapse;
 }
 
+ li{
+    list-style: none;
+ }
+ 
 .admin_list{
     padding: 20px;
 }
