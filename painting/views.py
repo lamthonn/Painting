@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404,redirect
-from .models import Painting, CreateUserForm, Like, Comment
+from .models import Painting, CreateUserForm, Like, Comment,avatar
 from django.contrib.auth.decorators import login_required, user_passes_test
 from .forms import PaintingUploadForm
-from .forms import PaintingUpdateForm
+from .forms import PaintingUpdateForm, avatar_user
 from django.contrib import messages
 from django.db.models import Q
 from django.contrib.auth.forms import UserCreationForm
@@ -88,6 +88,25 @@ def upload_painting(request):
     
     return render(request,'pages/upload.html',{'form':form,'paintings':paintings})
 
+@login_required
+def upload_avt(request):
+    if request.method == 'POST':
+        form = avatar_user(request.POST,request.FILES)
+        if form.is_valid():
+            avatars = avatar.objects.all()
+            Avt = avatars.filter(user_painting = request.user)
+            if not Avt:
+                avatar_obj = form.save(commit=False)
+                avatar_obj.user_painting = request.user
+                avatar_obj.save()
+            else:
+               formUpdateAvt = avatar_user(request.POST,request.FILES, instance= Avt.first())
+               if  formUpdateAvt.is_valid:
+                   formUpdateAvt.save()
+            return redirect('profile')
+    else:
+        form = avatar_user()
+    return render (request,'pages/upload_Avt.html', {'form':form} )
 
 # def painting_search(request):
 #     form = PaintingSearchForm(request.GET)
@@ -154,7 +173,8 @@ def logoutPage(request):
 
 def profile(request):
     painting_likes = Like.objects.filter(user=request.user)
-    return render(request, 'pages/profile_user.html', {'painting_likes':painting_likes})  
+    avatars = avatar.objects.filter(user_painting=request.user)
+    return render(request, 'pages/profile_user.html', {'painting_likes':painting_likes, 'avatars' :  avatars})  
 
 def like(request, pk):
     pain = get_object_or_404(Painting, pk=pk)

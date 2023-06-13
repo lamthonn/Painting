@@ -24,3 +24,7 @@ class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     painting = models.ForeignKey(Painting, on_delete=models.CASCADE)
     cmt = models.TextField()
+
+class avatar(models.Model):
+    user_painting = models.ForeignKey(User,on_delete=models.CASCADE)
+    avt = models.ImageField(upload_to='avatar')
